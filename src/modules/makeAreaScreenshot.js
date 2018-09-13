@@ -1,5 +1,6 @@
 import fsExtra from 'fs-extra';
 import path from 'path';
+import os from 'os';
 import debug from 'debug';
 
 import ScreenshotStrategyManager from '../utils/ScreenshotStrategyManager';
@@ -13,7 +14,7 @@ import ScreenDimension from '../utils/ScreenDimension';
 import normalizeScreenshot from '../utils/normalizeScreenshot';
 
 const log = debug('wdio-screenshot:makeAreaScreenshot');
-const tmpDir = path.join(__dirname, '..', '..', '.tmp');
+const tmpDir = path.join(os.tmpdir(), 'wdio-screenshot-tmp');
 
 async function storeScreenshot(browser, screenDimensions, cropDimensions, base64Screenshot, filePath) {
   const normalizedBase64Screenshot = await normalizeScreenshot(browser, screenDimensions, base64Screenshot);
