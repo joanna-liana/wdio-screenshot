@@ -1,11 +1,12 @@
 import gm from 'gm';
 import fsExtra from 'fs-extra';
 import path from 'path';
+import os from 'os';
 
 import generateUUID from '../generateUUID';
 import CropDimension from '../CropDimension';
 
-const tmpDir = path.join(__dirname, '../../../.tmp');
+const tmpDir = path.join(os.tmpdir(), 'wdio-screenshot-tmp');
 
 
 /**
